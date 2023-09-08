@@ -18,9 +18,9 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task Name" + getName() + " " +
-                "Priority Name " + getPriority() + " " +
-                "local Date" + getLocalDate();
+        return "Task: " + getName() + " " +
+                "Priority: " + getPriority() + " " +
+                "local-Date: " + getLocalDate();
     }
 
     public String getName() {
