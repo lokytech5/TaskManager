@@ -21,7 +21,8 @@ public class Menu {
         System.out.println("1. Add Task");
         System.out.println("2. Remove Task");
         System.out.println("3. List Tasks");
-        System.out.println("4. Exit");
+        System.out.println("4. Filter Tasks by Priority");
+        System.out.println("5. Exit");
     }
 
     public void handleuserInput(){
@@ -37,6 +38,9 @@ public class Menu {
                 taskManager.listTasks();
                 break;
             case 4:
+                filterTask();
+                break;
+            case 5:
                 System.out.println("Goodbye");
                 System.exit(0);
             default:
@@ -56,10 +60,20 @@ public class Menu {
     }
 
     private void removeTask() {
-        System.out.println("Enter task name to remove:");
+        System.out.print("Enter task name to remove: ");
         String name = input.next();
         taskManager.removetask(name);
         System.out.println("Task removed.");
+    }
+
+    private void filterTask(){
+        System.out.println("Enter priority to filter (HIGH, MEDIUM, LOW): ");
+        try {
+            Priority priority = Priority.valueOf(input.next().toUpperCase());
+            taskManager.filterByPriority(priority);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
     }
 
 }
