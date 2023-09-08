@@ -5,6 +5,17 @@ public class Task {
     private Priority priority;
     private Date localDate;
 
+    public Task(String name, Priority priority, Date localDate) {
+        this.name = name;
+        this.priority = priority;
+        this.localDate = localDate;
+    }
+
+    public Task(String name, Priority priority) {
+        this.name = name;
+        this.priority = priority;
+    }
+
     @Override
     public String toString() {
         return "Task Name" + getName() + " " +
